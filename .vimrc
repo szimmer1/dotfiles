@@ -1,5 +1,6 @@
 " pre-settings
 syntax enable
+syntax on
 set nocompatible              " be iMproved, required
 filetype off                  " REQUIRED
 
@@ -80,8 +81,9 @@ augroup END
 """"""""""""""""
 " color settings 
 """"""""""""""""
-set background=dark
 let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
 colorscheme solarized
 
 " abbreviations
