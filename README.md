@@ -10,10 +10,10 @@ Dependencies: `git`
     cd dotfiles
     
     # Initialize submodules
-    git submodule init
-    git submodule update --checkout
+    git submodule update --init --checkout
     
     # Link files to appropriate locations
     ln -s ./.vim ~/.vim
     ln -s ./.vimrc ~/.vimrc
-    
+
+Open vim with and run `:PluginInstall` to finish installation.
