@@ -38,12 +38,12 @@ call vundle#end()            " required
 
 " force some file types
 autocmd BufNewFile,BufRead *.[ch] setlocal filetype=c
-autocmd BufNewFile,BufRead *.[ch]pp setlocal filetype=c
+autocmd BufNewFile,BufRead *.[ch]pp setlocal filetype=cpp
 autocmd BufNewFile,BufRead *.py setlocal filetype=python
 autocmd BufNewFile,BufRead *.js setlocal filetype=javascript
 autocmd BufNewFile,BufRead *.rb setlocal filetype=ruby
 autocmd BufNewFile,BufRead *.json setlocal filetype=json
-autocmd BufNewFile,BufRead *.scala setlocal filetype=scala
+" autocmd BufNewFile,BufRead *.scala setlocal filetype=scala
 
 " force some file checkers
 
@@ -130,7 +130,7 @@ let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 
 " Explicit syntastic filetype checkers
-let g:syntastic_scala_checkers = ['scalac']  " default is ['fsc', 'scalac'], both will be run doubling lint time
+" let g:syntastic_scala_checkers = ['scalac']  " default is ['fsc', 'scalac'], both will be run doubling lint time
 
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': [] }
 
