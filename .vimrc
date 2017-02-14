@@ -5,6 +5,7 @@ execute pathogen#infect()
 syntax on
 set nocompatible              " be iMproved, required
 filetype plugin indent on     " REQUIRED
+set number
 
 """"""""""""""""
 " color settings 
