@@ -1,40 +1,28 @@
-" pre-settings
-syntax enable
+""""""""""""""""
+" pre-settings "
+""""""""""""""""
+execute pathogen#infect()
 syntax on
 set nocompatible              " be iMproved, required
-filetype off                  " REQUIRED
+filetype plugin indent on     " REQUIRED
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+""""""""""""""""
+" color settings 
+""""""""""""""""
+let g:solarized_termcolors=256
+set t_Co=256
+set background=dark
+colorscheme solarized
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+" for ctags
+set tags=./tags,tags;
 
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'vim-airline/vim-airline'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'derekwyatt/vim-scala'
+" Ctrl P
+let g:ctrlp_custom_ignore = 'pyc\|DS_Store'
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just
-" :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+""""""""""""""""""""""""""""""""""
+" Syntastic recommended settings "
+""""""""""""""""""""""""""""""""""
 
 " force some file types
 autocmd BufNewFile,BufRead *.[ch] setlocal filetype=c
@@ -45,81 +33,6 @@ autocmd BufNewFile,BufRead *.rb setlocal filetype=ruby
 autocmd BufNewFile,BufRead *.json setlocal filetype=json
 " autocmd BufNewFile,BufRead *.scala setlocal filetype=scala
 
-" force some file checkers
-
-"""""""""""""""
-" basic options
-"""""""""""""""
-set encoding=utf-8
-set number
-set visualbell
-set ff=unix
-" copy/paste from and to clipboard
-set clipboard=unnamed
-set softtabstop=4 
-set shiftwidth=4 
-set tabstop=4
-set expandtab
-set autoindent
-" Enable mouse use in all modes
-set mouse=a
-set ttymouse=xterm2
-" highlight all searches
-set hlsearch
-set incsearch
-" resize splits on window resize
-au VimResized * exe "normal! \<c-w>"
-" Make sure Vim returns to the same line when you reopen a file.
-augroup line_return
-    au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
-augroup END
-
-""""""""""""""""
-" color settings 
-""""""""""""""""
-let g:solarized_termcolors=256
-set t_Co=256
-set background=dark
-colorscheme solarized
-
-" abbreviations
-iabbrev ldis ಠ_ಠ
-
-" for ctags
-set tags=./tags,tags;
-
-" lightline
-set guifont=Source\ Code\ Pro\ ExtraLight\ for\ Powerline:h12,Menlo:h14
-set laststatus=2
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'component': {
-      \   'readonly': '%{&readonly?"":""}',
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
-
-" neocomplcache
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3
-let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-    " tab completion
-    inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" Ack
-let g:ack_default_options = " -H --nocolor --nogroup --column"
-
-" Ctrl P
-let g:ctrlp_custom_ignore = 'pyc\|DS_Store'
-
-" Syntastic recommended settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -135,9 +48,6 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': [] }
 
 nnoremap <C-w>s :SyntasticCheck<CR> 
-
-" Stop slimv from auto editing parens
-let g:paredit_mode=0
 
 """"""""""
 " mappings 
