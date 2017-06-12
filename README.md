@@ -10,7 +10,7 @@ Dependencies: `git`
     cd dotfiles
     
     # Initialize submodules
-    git submodule update --init --checkout
+    git submodule update --init --recursive
     
     # Link files to appropriate locations
     ln -s ./.vim ~/.vim
