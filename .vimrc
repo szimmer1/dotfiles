@@ -6,6 +6,7 @@ syntax on
 set nocompatible              " be iMproved, required
 filetype plugin indent on     " REQUIRED
 set number
+set backspace=indent,eol,start
 
 """"""""""""""""
 " color settings 
@@ -20,6 +21,61 @@ set tags=./tags,tags;
 
 " Ctrl P
 let g:ctrlp_custom_ignore = 'pyc\|DS_Store'
+
+"""""""""""""""""""""
+" NERDTree Settings "
+"""""""""""""""""""""
+nmap <F2> :NERDTreeToggle<CR>
+
+"""""""""""""""""""
+" Vim-Go settings "
+"""""""""""""""""""
+autocmd BufWritePre *.go :GoBuild
+let g:go_disable_autoinstall = 0
+
+" Highlight
+let g:go_highlight_functions = 1  
+let g:go_highlight_methods = 1  
+let g:go_highlight_structs = 1  
+let g:go_highlight_operators = 1  
+let g:go_highlight_build_constraints = 1  
+
+"""""""""""""""""""
+" tagbar settings "
+"""""""""""""""""""
+nmap <F3> :TagbarToggle<CR>
+let g:tagbar_type_go = {  
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+\ }
+
+""""""""""""""""""""""""""""
+" neocomplete.vim settings "
+""""""""""""""""""""""""""""
+let g:neocomplete#enable_at_startup = 1
 
 """"""""""""""""""""""""""""""""""
 " Syntastic recommended settings "
@@ -45,7 +101,10 @@ let g:syntastic_check_on_wq = 0
 
 " Explicit syntastic filetype checkers
 " let g:syntastic_scala_checkers = ['scalac']  " default is ['fsc', 'scalac'], both will be run doubling lint time
+let g:syntastic_go_checkers = ['gofmt', 'golint', 'errcheck']
 
+" all files active by default
+"   disabled filetypes
 let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': [] }
 
 nnoremap <C-w>s :SyntasticCheck<CR> 
