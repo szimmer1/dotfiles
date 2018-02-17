@@ -66,7 +66,10 @@ colorscheme solarized
 set tags=./tags,tags;
 
 " Ctrl P
-let g:ctrlp_custom_ignore = 'pyc\|DS_Store|vendor'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn)|vendor$',
+  \ 'file': '\v[\/]pyc\|DS_Store$'
+  \ }
 
 """"""""""""""""""""""
 " quickfix shortcuts "
