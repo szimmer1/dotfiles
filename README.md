@@ -16,4 +16,13 @@ Dependencies: `git`
     ln -s ./.vim ~/.vim
     ln -s ./.vimrc ~/.vimrc
 
+#### Individual plugin installations
+Some plugins require addition installation
+
+**vim-go**
+Open vim and run `:GoInstallBinaries`
+
+**YouCompleteMe**
+Navigate to the YouCompleteMe dir `.vim/bundle/YouCompleteMe` and run `./install.py --clang-completer --go-completer`
+
 Open vim with and run `:PluginInstall` to finish installation.
