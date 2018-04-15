@@ -258,12 +258,12 @@ let g:syntastic_check_on_wq = 0
 
 " Explicit syntastic filetype checkers
 " let g:syntastic_scala_checkers = ['scalac']  " default is ['fsc', 'scalac'], both will be run doubling lint time
-" let g:syntastic_go_checkers = ['govet', 'gofmt', 'golint', 'errcheck']
+let g:syntastic_go_checkers = ['govet', 'gofmt', 'golint', 'errcheck']
 let g:syntastic_javascript_checkers = ['eslint']
 
 " all files active by default
 "   disabled filetypes
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 nnoremap <C-w>s :SyntasticCheck<CR> 
 
